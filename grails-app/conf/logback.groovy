@@ -33,4 +33,17 @@ if (Environment.isDevelopmentMode() && targetDir != null) {
     }
     logger("StackTrace", ERROR, ['FULL_STACKTRACE'], false)
 }
-root(ERROR, ['STDOUT'])
+root ERROR, ['STDOUT']
+
+
+
+if (Environment.current != Environment.PRODUCTION) {
+    logger  'StackTrace', ERROR, ['FULL_STACKTRACE'], false
+    logger  'grails.plugin', DEBUG, ['STDOUT'], false
+    logger  'grails.app.controllers', DEBUG, ['STDOUT'], false
+    logger  'grails.app.services', DEBUG, ['STDOUT'], false
+    logger  'grails.app.domain', DEBUG, ['STDOUT'], false
+    logger  'grails.plugin.springsecurity', DEBUG, ['STDOUT'], false
+    logger  'org.springframework', INFO, ['STDOUT'], false
+    logger  'org.hibernate', ERROR, ['STDOUT'], false
+}
