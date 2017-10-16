@@ -1,9 +1,10 @@
-package com.ligarisma.booking
+package com.ligarisma.booking.domain
 
+import com.ligarisma.booking.HostedAt
 import grails.testing.gorm.DomainUnitTest
 import spock.lang.Specification
 
-class ReservationSpec extends Specification implements DomainUnitTest<Reservation> {
+class HostedAtSpec extends Specification implements DomainUnitTest<HostedAt> {
 
     def setup() {
     }
