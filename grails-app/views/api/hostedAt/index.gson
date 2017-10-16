@@ -1,0 +1,8 @@
+import com.ligarisma.booking.HostedAt
+
+model {
+	Iterable<HostedAt> hostedAtList
+}
+
+json tmpl.hostedAt(hostedAtList ?: [])
+

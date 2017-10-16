@@ -82,7 +82,7 @@ dataSource:
 environments:
     development:
         dataSource:
-            dbCreate: create-drop
+            dbCreate: update
             url : "jdbc:mysql://192.168.56.102/book_room"
     test:
         dataSource:

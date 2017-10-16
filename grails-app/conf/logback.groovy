@@ -45,5 +45,8 @@ if (Environment.current != Environment.PRODUCTION) {
     logger  'grails.app.domain', DEBUG, ['STDOUT'], false
     logger  'grails.plugin.springsecurity', DEBUG, ['STDOUT'], false
     logger  'org.springframework', INFO, ['STDOUT'], false
-    logger  'org.hibernate', ERROR, ['STDOUT'], false
+
+    logger "org.hibernate.SQL", DEBUG, ["STDOUT"], false
+    logger "org.hibernate.type.descriptor.sql.BasicBinder", TRACE, ["STDOUT"], false
+
 }

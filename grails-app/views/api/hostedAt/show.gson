@@ -1,0 +1,7 @@
+import com.ligarisma.booking.HostedAt
+
+model {
+	HostedAt hostedAt
+}
+
+json tmpl.hostedAt(hostedAt)

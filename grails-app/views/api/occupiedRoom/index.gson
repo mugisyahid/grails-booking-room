@@ -1,0 +1,8 @@
+import com.ligarisma.booking.OccupiedRoom
+
+model {
+	Iterable<OccupiedRoom> occupiedRoomList
+}
+
+json tmpl.occupiedRoom(occupiedRoomList ?: [])
+

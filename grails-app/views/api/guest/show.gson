@@ -1,0 +1,7 @@
+import com.ligarisma.booking.Guest
+
+model {
+	Guest guest
+}
+
+json tmpl.guest(guest)

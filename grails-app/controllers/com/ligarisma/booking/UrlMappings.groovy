@@ -17,7 +17,13 @@ class UrlMappings {
 
         group('/api'){
 
-            '/guests'(resources: 'guest')
+            '/guests'(resources: 'guest', namespace: 'api')
+            '/hostedat'(resources: 'hostedat', namespace: 'api')
+            '/occupied'(resources: 'occupiedroom', namespace: 'api')
+            '/reservation'(resources: 'reservation', namespace: 'api')
+            '/reservedroom'(resources: 'reservedroom', namespace: 'api')
+            '/room'(resources: 'room', namespace: 'api')
+            '/roomtype'(resources: 'roomtype', namespace: 'api')
 
         }
 

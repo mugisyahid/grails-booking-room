@@ -1,0 +1,7 @@
+import com.ligarisma.booking.Reservation
+
+model {
+	Reservation reservation
+}
+
+json g.render(reservation, [resolveTemplate: false])

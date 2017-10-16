@@ -1,0 +1,8 @@
+import com.ligarisma.booking.Guest
+
+model {
+	Iterable<Guest> guestList
+}
+
+json tmpl.guest(guestList ?: [])
+

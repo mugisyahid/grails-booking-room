@@ -9,11 +9,11 @@ class Guest {
 
     String lastName
 
-    LocalDateTime member_since
+    LocalDateTime memberSince
 
     //user to login credential
 
-
     static constraints = {
+        memberSince  nullable: true
     }
 }

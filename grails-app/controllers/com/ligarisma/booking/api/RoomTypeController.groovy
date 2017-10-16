@@ -1,15 +1,15 @@
 package com.ligarisma.booking.api
 
-import com.ligarisma.booking.Guest
+import com.ligarisma.booking.RoomType
 import grails.rest.RestfulController
 
-class GuestController extends RestfulController {
+class RoomTypeController extends RestfulController {
 
     static namespace = 'api'
 
     static responseFormats = ['json']
 
-    GuestController() {
-        super(Guest)
+    RoomTypeController() {
+        super(RoomType)
     }
 }
