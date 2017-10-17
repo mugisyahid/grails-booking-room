@@ -11,6 +11,7 @@ grails:
             # Whether to translate GORM events into Reactor events
             # Disabled by default for performance reasons
             events: false
+      #  autowire: true #injecting springSecurity service in gorm
 info:
     app:
         name: '@info.app.name@'
@@ -103,7 +104,7 @@ environments:
       dataSource.dbCreate: update
           # primary data source
       hibernate.hikari.dataSource:
-        url: "jdbc:mysql://192.168.56.102/book_room"
+        url: "jdbc:mysql://localhost/book_room"
         user: root
         password: 'root'
     test:
