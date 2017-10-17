@@ -9,7 +9,6 @@ import org.hibernate.SessionFactory
 @Rollback
 class RoomTypeServiceSpec extends Specification {
 
-    RoomTypeService roomTypeService
     SessionFactory sessionFactory
 
     private Long setupData() {

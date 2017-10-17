@@ -16,6 +16,12 @@ info:
         name: '@info.app.name@'
         version: '@info.app.version@'
         grailsVersion: '@info.app.grailsVersion@'
+    plugin:
+      springsecurity:
+       password:
+          algorithm: 'bcrypt'
+          bcrypt.logrounds: 20 # between 4 to 31
+
 spring:
     main:
         banner-mode: "off"
@@ -72,8 +78,8 @@ hibernate:
         use_second_level_cache: false
         use_query_cache: false
 dataSource:
-    pooled: true
-    jmxExport: true
+    pooled: false
+    jmxExport: false
     username: root
     password: 'root'
     driverClassName: org.mariadb.jdbc.Driver
@@ -81,18 +87,21 @@ dataSource:
 
 environments:
     development:
-        dataSource:
-            dbCreate: update
-            url : "jdbc:mysql://192.168.56.102/book_room"
+      grails.plugin.springsecurity:
+          active: true          # change this to false to temporarily disable springsecurity
+          debug.useFilter: true # show debug message for security chain filter
+    dataSource:
+        dbCreate: update
+        url : "jdbc:mysql://192.168.56.102/book_room"
     test:
-        dataSource:
-            dbCreate: update
-            url: jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+      dataSource:
+             dbCreate: update
+             url : "jdbc:mysql://192.168.56.102/book_room"
     production:
-        dataSource:
-            dbCreate: none
-            url: jdbc:h2:./prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
-            properties:
+       dataSource:
+              dbCreate: update
+              url : "jdbc:mysql://192.168.56.102/book_room"
+              properties:
                 jmxEnabled: true
                 initialSize: 5
                 maxActive: 50

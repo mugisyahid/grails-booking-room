@@ -9,7 +9,6 @@ import org.hibernate.SessionFactory
 @Rollback
 class HostedAtServiceSpec extends Specification {
 
-    HostedAtService hostedAtService
     SessionFactory sessionFactory
 
     private Long setupData() {
