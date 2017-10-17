@@ -16,11 +16,6 @@ info:
         name: '@info.app.name@'
         version: '@info.app.version@'
         grailsVersion: '@info.app.grailsVersion@'
-    plugin:
-      springsecurity:
-       password:
-          algorithm: 'bcrypt'
-          bcrypt.logrounds: 20 # between 4 to 31
 
 spring:
     main:
@@ -73,26 +68,44 @@ grails:
 
 ---
 hibernate:
-    cache:
-        queries: false
-        use_second_level_cache: false
-        use_query_cache: false
+  jdbc:
+    time_zone: 'UTC'
+  singleSession: true
+  flush:
+    mode: manual
+  connection:
+    useUnicode: true
+    charSet: utf8
+    characterEncoding: utf8
+    provider_class: org.hibernate.hikaricp.internal.HikariCPConnectionProvider
+  hikari:
+    minimumIdle: '5'
+    maximumPoolSize: '20'
+    idleTimeout: '30000'
+    dataSourceClassName: org.mariadb.jdbc.MySQLDataSource
+  cache:
+    queries: false
+    use_query_cache: false
+    use_second_level_cache: false
+
 dataSource:
-    pooled: false
-    jmxExport: false
-    username: root
-    password: 'root'
-    driverClassName: org.mariadb.jdbc.Driver
-    dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+      pooled: false
+      jmxExport: true
+      jmxEnabled: true
+      driverClassName: org.mariadb.jdbc.Driver
+      dialect: org.hibernate.dialect.MySQL5InnoDBDialect
 
 environments:
     development:
       grails.plugin.springsecurity:
           active: true          # change this to false to temporarily disable springsecurity
           debug.useFilter: true # show debug message for security chain filter
-    dataSource:
-        dbCreate: update
-        url : "jdbc:mysql://192.168.56.102/book_room"
+      dataSource.dbCreate: update
+          # primary data source
+      hibernate.hikari.dataSource:
+        url: "jdbc:mysql://192.168.56.102/book_room"
+        user: root
+        password: 'root'
     test:
       dataSource:
              dbCreate: update

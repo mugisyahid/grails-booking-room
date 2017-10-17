@@ -16,8 +16,8 @@ grails.plugin.springsecurity.interceptUrlMap = [
 		[pattern: '/**/css/**',      access: ['permitAll']],
 		[pattern: '/**/images/**',   access: ['permitAll']],
 		[pattern: '/**/favicon.ico', access: ['permitAll']],
-		[pattern: '/api/login',          access: ['permitAll']],
-		[pattern: '/api/logout',        access: ['isFullyAuthenticated()']],
+		[pattern: '/api/login',      access: ['permitAll']],
+		[pattern: '/api/logout',     access: ['isFullyAuthenticated()']],
 		[pattern: '/api/product',    access: ['isFullyAuthenticated()']],
 		[pattern: '/**',             access: ['isFullyAuthenticated()']]
 ]
@@ -28,10 +28,10 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 ]
 
 grails.plugin.springsecurity.rest.login.active = true
-grails.plugin.springsecurity.rest.login.endpointUrl = '/login'
+grails.plugin.springsecurity.rest.login.endpointUrl = '/api/login'
 grails.plugin.springsecurity.rest.login.failureStatusCode = 401
 grails.plugin.springsecurity.rest.login.useJsonCredentials = true
-grails.plugin.springsecurity.rest.login.usernamePropertyName = 'email'
+grails.plugin.springsecurity.rest.login.usernamePropertyName = 'username'
 grails.plugin.springsecurity.rest.login.passwordPropertyName = 'password'
 
 grails.plugin.springsecurity.rest.token.generation.jwt.algorithm = 'HS512'
@@ -39,3 +39,5 @@ grails.plugin.springsecurity.rest.token.validation.headerName = 'Auth-Token'
 grails.plugin.springsecurity.rest.token.validation.enableAnonymousAccess = true
 grails.plugin.springsecurity.rest.token.validation.useBearerToken = true
 grails.plugin.springsecurity.rest.token.storage.jwt.useSignedJwt = true
+
+
